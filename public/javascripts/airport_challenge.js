@@ -4,7 +4,11 @@ function Airport(Weather) {
 }
 Airport.prototype.land = function (plane) {
   if (this._weather.report() === "Fine") {
-    this._planes.push(plane);
+    if (this._planes.length < 20) {
+      this._planes.push(plane);
+    } else {
+      throw Error("Airport is Full");
+    }
   } else {
     throw Error("Weather is Stormy");
   }
