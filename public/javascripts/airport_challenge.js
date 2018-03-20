@@ -1,8 +1,15 @@
-function Airport () {
+function Airport(Weather) {
+  this._weather = new Weather();
   this._planes = [];
 }
 Airport.prototype.land = function (plane) {
+  if (this._weather.report === "Fine") {
+
   this._planes.push(plane);
+}
+else {
+  const error = Error("Weather is Stormy");
+}
 }
 Airport.prototype.planes = function () {
   return this._planes;
