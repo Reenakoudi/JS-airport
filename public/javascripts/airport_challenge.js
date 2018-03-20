@@ -19,8 +19,13 @@ Airport.prototype.planes = function () {
 }
 
 Airport.prototype.takeoff = function(plane) {
-  var i = this._planes.indexOf(plane);
-  return this._planes.splice(i,1);
+  if(this._weather.report() === "Fine") {
+    var i = this._planes.indexOf(plane);
+    return this._planes.splice(i,1);
+  }
+  else {
+    throw Error("Weather is Stormy");
+  }
 
 }
 
