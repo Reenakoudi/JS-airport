@@ -13,3 +13,10 @@ Airport.prototype.takeoff = function(plane) {
   return this._planes.splice(i,1);
 
 }
+
+function Weather () {
+}
+
+Weather.prototype.report = function () {
+  return Math.random() > 0.8 ? 'Stormy' : 'Fine' ;
+}
