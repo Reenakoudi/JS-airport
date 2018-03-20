@@ -5,4 +5,12 @@ describe("airport", function() {
     airport.land(plane);
     expect(airport.planes()[0]).toEqual(plane);
   });
+
+  it ('Plane should take off', function(){
+    airport = new Airport();
+    var plane = 'Plane1';
+    airport.land(plane);
+    airport.takeoff(plane); 
+    expect(airport.planes()[0]).toEqual(undefined);
+  });
 });
