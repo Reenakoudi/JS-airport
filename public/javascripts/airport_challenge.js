@@ -3,14 +3,17 @@ function Airport(Weather) {
   this._planes = [];
 }
 Airport.prototype.land = function (plane) {
-  if (this._weather.report === "Fine") {
+  if (this._weather.report() === "Fine") {
+    this._planes.push(plane);
+  } else {
+    throw Error("Weather is Stormy");
+  }
+}
+Airport.prototype.report = function () {
+  return this._weather.report();
+}
 
-  this._planes.push(plane);
-}
-else {
-  const error = Error("Weather is Stormy");
-}
-}
+
 Airport.prototype.planes = function () {
   return this._planes;
 }
