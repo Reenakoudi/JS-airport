@@ -44,4 +44,15 @@ describe("airport", function() {
     }
     expect(function(){airport.land(plane)}).toThrowError('Airport is Full');
   });
+
+  it('Does not land a plane when the airport is full for capacity 10',function(){
+    airport = new Airport(Weather);
+    airport.setCapacity(10);
+    spyOn(Math, 'random').and.returnValue(0.5);
+    var plane = 'I am a plane';
+    for (let i = 1; i <= 10; i++) {
+      airport.land(plane)
+    }
+    expect(function(){airport.land(plane)}).toThrowError('Airport is Full');
+  });
 });
